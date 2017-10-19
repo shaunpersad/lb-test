@@ -16,6 +16,7 @@ function request() {
         res.on('end', () => {
 
             console.log('response:', body);
+            setTimeout(request, 1500);
         });
     }).on('error', request);
 
