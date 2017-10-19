@@ -1,0 +1,18 @@
+version: '2'
+services:
+
+  service-a:
+    build: .
+    image: shaunpersad/lb-test-service-a
+    command: node service-a.js
+    ports:
+      - '1337:1337'
+    links:
+      - service-b
+
+  service-b:
+    build: .
+    image: shaunpersad/lb-test-service-b
+    command: node service-b.js
+    ports:
+      - '3000'
